@@ -10,28 +10,35 @@ const LoginForm = () => {
   const isDarkMode = theme === "dark" || false;
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
 
     try {
-      fetch(`${apiBaseUrl}/auth`, {
+      const response = await fetch(`${apiBaseUrl}/auth`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           username: data.login,
           password: data.password,
         }),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          setTokenInStorage(data.token);
-          setLogin();
-          navigate("/home");
-        });
+      });
+
+      if (response.status === 200) {
+        const responseData = await response.json();
+        setTokenInStorage(responseData.token);
+        setLogin();
+        navigate("/home");
+
+      } else {
+        throw response.status;
+      }
+
     } catch (error) {
-      console.log(error.message);
+      console.log(error);
+      alert("Não foi possível realizar o login!\nVerifique suas credenciais e tente novamente.")
     }
   };
 

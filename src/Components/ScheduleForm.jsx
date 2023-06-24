@@ -58,7 +58,7 @@ const ScheduleForm = () => {
           window.location.href = '/';
         }
         else {
-          alert("Ocorreu um erro");
+          alert("Ocorreu um erro ao tentar realizar o agendamento!");
         }
       });
     } catch (error) {

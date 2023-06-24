@@ -4,6 +4,7 @@ import ScheduleFormModal from "./ScheduleFormModal";
 import { ContextGlobal } from "./utils/global.context";
 import styles from "./DetailCard.module.css";
 import apiBaseUrl from "../api";
+import { getTokenFromStorage } from "./utils/localStorage.service";
 
 
 const DetailCard = () => {
@@ -11,6 +12,8 @@ const DetailCard = () => {
   const [dentist, setDentist] = useState(undefined);
   const { theme } = useContext(ContextGlobal);
   const isDarkMode = theme === "dark" || false;
+
+  const token = getTokenFromStorage();
 
   useEffect(() => {
     async function fetchData() {
@@ -50,6 +53,7 @@ const DetailCard = () => {
                 </ul>
                 <div className="text-center">
                   <button
+                    disabled={!token ? true : false}
                     data-bs-toggle="modal"
                     data-bs-target="#exampleModal"
                     className={`btn btn-${isDarkMode ? "dark" : "light"} ${styles.button
@@ -57,6 +61,10 @@ const DetailCard = () => {
                   >
                     Schedule a Consult
                   </button>
+
+                  <br />
+
+                  {!token ? "NOTE: Login is necessary" : ""}
                 </div>
               </div>
             </div>
