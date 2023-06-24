@@ -99,4 +99,9 @@ O envio será aceito enviando o URL do seu repositório clonado e um link do seu
 
 O link do Google Form para submissão será enviado pelo professor responsável pela comissão.
 
+
+## Resultado final (Exemplo)
+
+Deixamos um exemplo de como deve funcionar a sua aplicação na [vercel](https://dh-front-end-iii-checkpoint-ii-resolucao.vercel.app/home)
+
 Boa sorte e sucesso!
