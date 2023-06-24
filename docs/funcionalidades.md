@@ -74,4 +74,4 @@ Quando o botão de marcar consulta for clicado, deve ser feito uma chamada api p
 
 ## Resultado final
 
-Deixamos um exemplo de como deve funcionar a sua aplicação na [vercel](https://ctd-fe3-final-solution.vercel.app/home)
+Deixamos um exemplo de como deve funcionar a sua aplicação na [vercel](https://dh-front-end-iii-checkpoint-ii-resolucao.vercel.app/home)
